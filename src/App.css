@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
+/*.App-logo {
   height: 40vmin;
+  size: 20px;
   pointer-events: none;
+}*/
+
+.MediMatrixLogo{
+border-radius: 5%;
+height: auto;
+width: 150px;
+top: 0;
+left: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, 'sans-serif';
+  font-size: 16px;
+  background-color: #dadada;
 }
+a{
+  text-decoration: none; 
+  color: inherit;
+}
+
+.Menu-Wrapper{
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  width: 100vw;
+  z-index: 2;
+  gap: 1.5rem;
+  background: var(--background);
+  height: var(--navbar-height);
+  padding: 0px 1rem;
+  align-items: center;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.Item-title{
+  color: #000000;
+  size: 150px;
+}
+
+h1
+{
+color: black;
+font-stretch: condensed;
+font: 40px;
+font-weight: 200000;
+background-color: rgb(27, 46, 220);
+justify-content:right;
+}
+
 
 .App-header {
-  background-color: #282c34;
+  background-color:black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: top;
+  justify-content: top;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+nav {
+  display: flex;
+flex-direction: column;
+  align-items: center;
+  text-decoration: underline;
+  justify-content: space-between;
+ font-size: 20px;
+ font-stretch:expanded;
+  background-color: #131921;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: wavy;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-unstyled {
+  list-style: none;
 }
+
+
+
+
+
