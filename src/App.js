@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import logo from './logo.png/Medimatrix.webp';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Appointment from './components/Appointment';
@@ -22,6 +23,7 @@ fetch('')
 
 
   return (
+<>
   <Router>
   <div className="App">   
      <img src={logo} alt="MediMatrix Logo" width= '100' className='MediMatrixLogo' />
@@ -42,7 +44,7 @@ fetch('')
  </div>
 
   </Router>
-  
+  </>
     
   );
 }

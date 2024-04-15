@@ -1,0 +1,20 @@
+.loginPage {
+    background-image: url(/public/Images/Background.webp);
+    background-color: rgb(79, 221, 221);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 200%;
+}
+
+.loginForm{
+    background-color: rgba(12, 1, 1, 0.808);
+    color: white;
+}
+
+.box{
+    background: var(#1e1e1e);
+    padding: 1.5rem;
+    padding-top: 0.75rem;
+    border-radius: 1rem;
+
+}
