@@ -1,52 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import logo from './logo.png/Medimatrix.webp';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Appointment from './components/Appointment';
 import './App.css';
 import Home from './components/Home';
+import { Login } from './components/Login';
+import Dashbboard from './components/Dashbboard';
+import Employee from './components/Epmployee';
+import Category from './components/Category';
+import Profile from './components/Profile';
+import AddCategory from './components/AddCategory';
 
 
-const App = () => {
-  const [appointment, setAppointment] = useState ([]);
-  const [Doctors, setDoctors] = useState ([])
-
-  useEffect( () =>{
-fetch('')
-.then(data => setAppointment(data))
-
-  })
-
-  const addappointments = appointments => {
-    setAppointment([...appointment, appointments]);
-  };
-
+function App(){
 
   return (
-<>
-  <Router>
-  <div className="App">   
-     <img src={logo} alt="MediMatrix Logo" width= '100' className='MediMatrixLogo' />
-      <h1>Welcome MediMatrix</h1>
-      
-  <nav>
-  <ul>
-    <li className='list-unstyled'>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/about">About Us</Link></li>
-    <li><Link to="/contact">Contact Us</Link></li>
-    <li><Link to="/appointment">Appointment</Link></li>
-    </li>
-  </ul>
-</nav>
+  <>
+  <Routes>
+    <Route path='/' element={<Home />} />
+    <Route path='/Login' element={<Login/>}  />
+    <Route path='/Dashboard' element={<Dashbboard/>}>
+      <Route path='/Dashboard/employee' element={<Employee/>}></Route>
+      <Route path='/Dashboard/category' element={<Category/>}></Route>
+      <Route path='/Dashboard/profile' element={<Profile/>}></Route>
+      <Route path='/Dashboard/add_category' element={<AddCategory/>}></Route>
+    </Route>
 
+  </Routes>
 
- </div>
-
-  </Router>
   </>
-    
-  );
+  )
+  
 }
 
 export default App;

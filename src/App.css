@@ -4,8 +4,9 @@
   pointer-events: none;
 }*/
 
-.MediMatrixLogo{
-border-radius: 5%;
+.logo{
+
+border-radius: 100%;
 height: auto;
 width: 150px;
 top: 0;
@@ -19,23 +20,11 @@ background-color: #dadada;
 
  
 }
+
+
 a{
   text-decoration: none; 
   color: inherit;
-}
-
-.Menu-Wrapper{
-  display: flex;
-  position: fixed;
-  justify-content: space-between;
-  width: 100vw;
-  z-index: 2;
-  gap: 1.5rem;
-  background: var(--background);
-  height: var(--navbar-height);
-  padding: 0px 1rem;
-  align-items: center;
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
 }
 
 .Item-title{
@@ -70,14 +59,11 @@ nav {
   display: flex;
 flex-direction: column;
   align-items: center;
-  text-decoration: underline;
+  text-decoration: none;
   justify-content: space-between;
  font-size: 20px;
- font-stretch:expanded;
-  background-color: #131921;
   color: white;
-  padding: 10px 20px;
-  text-decoration: wavy;
+  padding: 10px 10px;
 
 }
 
