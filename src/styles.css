@@ -18,3 +18,20 @@
     border-radius: 1rem;
 
 }
+
+.medishadow{
+    color: white;
+    border-color:chocolate;
+    
+}
+.dashboard{
+    background-color: grey;
+    background-image: url(/public/Images/Adminbg3.webp);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    
+}
+
+
+

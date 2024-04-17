@@ -1,30 +1,175 @@
-/*.App-logo {
-  height: 40vmin;
-  size: 20px;
-  pointer-events: none;
-}*/
 
-.logo{
-
-border-radius: 100%;
-height: auto;
-width: 150px;
-top: 0;
-left: 0;
+.hero{
+  display: flex;
+  width: 100%;
+  height: 190vh;
+  background-image: url('/public/Images/Homebg.jpg');
+  background-size: cover; 
+  background-position: center;
+  min-height: 100vh;  
+  color: #fff;
+  align-items: center;
+  justify-content: center;
 }
+
+.overlay{
+  position: absolute;
+  height: 190vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #103a4f; /* rgba(0, 91, 184, 0.6) */
+  opacity: 0.8;
+  z-index: 1;
+
+}
+.content{
+display: flex;
+flex-direction: column;
+max-width: 1200px;
+width: 100%;
+margin: 0 auto;
+justify-content: center;
+align-items: center;
+}
+
+.midheader{
+  font-size: 3em;
+  font-weight: 800;
+  margin-bottom: 4.5em;
+  color: whitesmoke;
+  text-align: center;
+  max-width: 800px;
+  z-index: 2;
+}
+
+.midheader h1{
+  font-size: 60px;
+  font-weight: 600;
+  max-width: 700px;
+  margin: 10-x auto 20px;
+  line-height: 1.4 ;
+}
+.list-unstyled {
+  display: flex;
+width: 30%;
+padding: 4px 0;
+position: fixed;
+top: 0;
+right: 0;
+padding-right: 10%;
+margin-top: 2%;
+  align-items: center;
+  text-decoration: none;
+  justify-content: space-between;
+ font-size: 20px;
+ font-weight: bold;
+  color: white;
+  z-index: 10;
+  transition: 0.5s;
+
+}
+
+.nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 5px 20px;
+  font-size: 16px;
+
+  
+}
+
+
+
+ .location-item:hover .caption{
+  opacity: 1;
+ }
+
+.btn{
+  background: #fff;
+  color: #212121;
+  padding: 14px 25px ;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+}
+
+.logohome {
+  width: 180px;
+  height:  auto;
+  z-index: 2;
+  
+  
+}
+
+
+/* This will center the icons horizontally and vertically on the page */
+.locations {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Center vertically */
+  height: 100vh; /* Full height of the viewport */
+  padding: 0px;
+}
+
+.sp{
+  font-size: 30px;
+  font-style: oblique;
+  
+}
+
+/* Flex container for each icon and its label */
+.location-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items vertically */
+  margin-top: -20;
+  margin: 0 20px; /* Add some space between the icons */
+  transition: transform 0.5s ease;
+}
+
+.location-item img {
+  width: 100px;
+  height: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  backface-visibility: hidden;
+}
+
+/* Label styling */
+.location-item p {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+
+
+
+.location-item:hover {
+  transform: scale(1.1); /* Slightly enlarge the icons on hover */
+}
+
+
+
+
+
+
+
 
 body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, 'sans-serif';
   font-size: 16px;
-background-color: #dadada;
-
- 
+background-color: #141414;
 }
 
 
 a{
   text-decoration: none; 
   color: inherit;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .Item-title{
@@ -32,44 +177,12 @@ a{
   size: 150px;
 }
 
-h1
-{
-color: black;
-font-stretch: condensed;
-font: 40px;
-font-weight: 200000;
-background-color: rgb(27, 46, 220);
-justify-content:right;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
 }
 
-
-.App-header {
-  background-color:black;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: top;
-  justify-content: top;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  
-}
-
-nav {
-  display: flex;
-flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  justify-content: space-between;
- font-size: 20px;
-  color: white;
-  padding: 10px 10px;
-
-}
-
-.list-unstyled {
-  list-style: none;
-}
 
 
 

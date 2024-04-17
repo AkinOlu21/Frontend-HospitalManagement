@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom'
 
 const Dashbboard = () => {
   return (
-    <div className='container-fluid'>
+    <div className='container-fluid dashboard'>
         <div className='row flex-nowrap'>
             <div className='col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark'>
                 <div className='d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100'>
@@ -66,7 +66,7 @@ const Dashbboard = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link className='nac-link px-0 align-middle text-white'>
+                    <Link className='nav-link px-0 align-middle text-white'>
                         <i className='fs-4 bi-box-arrow-left text-white'>
                         </i>
                         <span className='ms-2 d-none d-sm-inline'>Logout
@@ -77,9 +77,12 @@ const Dashbboard = () => {
                 </div>
             </div>
             <div className='col p-0 m-0'>
-                <div className='p-2 d-flex body-tertiary justify-content-center shadow-lg medishadow'>
+                
+                <Link to={'/'}>
+                <div className='nav-link p-2 d-flex body-tertiary justify-content-center shadow-lg medishadow'>
                     <h4 className='fw-bold fs-3 '>MEDIMATRIX MANAGEMENT SERVICES </h4>
                 </div>
+                </Link>
                 <Outlet/>
             </div>
         </div>

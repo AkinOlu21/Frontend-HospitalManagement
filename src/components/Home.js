@@ -5,27 +5,65 @@ import React from "react";
 export function Home (){
 
 return (
-  <div className="bg-white mx-auto px-4 py-3">  
-  <div className="d-flex justify-content-between align items center"> 
-      <div className="d-flex px-3 py-2"> 
-           <h1 className=" container bg-white mb-0">Welcome To MediMatrix</h1>
-      <img src="/Images/Medimatrix.webp" className="rounded-circle logo img-fluid px-1 py- float-start"  alt="Logo" />
-      </div>
-      <nav className="bg-danger"> 
-  <ul className="list-unstyled d-flex mb-0" >
-    <li className="mx-2" >
-      <Link to="/">Home</Link>
+
+<div className="hero">  
+  <div className=" content d-flex justify-content-between align items center px-1 py-0"> 
+  <div className="overlay"></div>
+
+          <nav className="nav  fw-20 "> 
+  <ul className="list-unstyled d-flex mb-2 mb-lg-0" >
+    <li className="nav-item mx-2" >
+      <Link className="btn" to="/">Home</Link>
     </li>
-    <li className="mx-2">
-      <Link to="/Login">Login</Link>
+    <li className="nav-item mx-2">
+      <Link className="btn " to="/Login">Login</Link>
     </li>
-    <li className="mx-2">
-      <Link to="/Dashboard">Dashbboard</Link>
+    <li className="nav-item mx-2">
+      <Link className="btn btn-outline-red" to="/Dashboard">Dashbboard</Link>
     </li>
   </ul>
 </nav>
+<div className="midheader ">
+   <h1 className=" h1home align-item-center mx-5 py-5">Medimatrix Management</h1>
+   <div className="locations">
+  
+   <div className="locations">
+    <Link>
+  <div className="location-item">
+    <div className="caption">
+      <img className="btn" src="/Images/loc1.png" alt="Apex Health Tower" /> 
+         <p>Apex Health tower</p>
+
+    </div>
+  </div>
+</Link>
+    <Link>
+  <div className="location-item">
+    <div className="caption" >
+      <img className="btn" src="/Images/loc2.png" alt="Summit Healthcare Hub" />
+       <p>Summit Healthcare Hub</p>
+    </div>
+  </div>
+  </Link>
 </div>
-      </div>
+<div className="about ">
+<div className="about-left"> 
+        <img src="/Images/Medimatrixx2.png" className="about-img" alt="Logo" />
+</div>
+<div className="about-right ">
+  <h3>About: 
+    Medimatrix Medimatrix is a healthcare management service for patients
+     and doctors to use to make their life easier</h3>
+  </div>
+
+
+</div>
+</div>
+</div>
+
+ </div>
+ </div>
+
   );
   
 }

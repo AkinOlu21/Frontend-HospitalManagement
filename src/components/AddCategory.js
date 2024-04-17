@@ -12,9 +12,7 @@ const AddCategory = () => {
     }
   return (
     <div >
-        <div>
-        </div>
-        <div className='d-flex justify-content-center align-items-center h-75 Category'>
+        <div className='bg-white mx-10 d-flex justify-content-center align-items-center h-75 Category'>
     <div className='p-3 rounded w-25 border border-success mb-2'>
             <h2>Add Category</h2>
         <form onSubmit={handleSubmit}>
