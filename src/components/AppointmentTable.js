@@ -1,18 +1,8 @@
-import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import { Axios } from 'axios'
-import { API_Base_URL } from '../apiConfig'
-import AppointmentForm from './AppointmentForm'
+import React from 'react'
 
-const Appointment = () => {
-
+const AppointmentTable = ({appointment, handleEdit, handleDelete}) => {
   return (
-    <div>
-    <div className='appointment'>Appointment</div>
-<Link  to="/AppointmentTable">appointment  table </Link>
-
-<Link className='bg-white btn' to="AppointmentForm"> Appointment Form </Link>
-<table>
+   <table>
     <thread>
         <tr>
             <th>ID</th>
@@ -38,11 +28,7 @@ const Appointment = () => {
         </tbody>
     </thread>
    </table>
-    
-    
-   <Outlet/>
-    </div>
   )
 }
 
-export default Appointment
+export default AppointmentTable

@@ -35,3 +35,58 @@
 
 
 
+
+.appointment-form-container {
+    background: white;
+    width: 100%;
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .appointment-form {
+    max-width: 600px; /* Set a max-width for the form */
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* A subtle shadow for some depth */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Creates consistent spacing between elements */
+  }
+  
+  .appointment-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .appointment-form label {
+    font-weight: bold;
+  }
+  
+  .appointment-form select,
+  .appointment-form input[type="date"],
+  .appointment-form input[type="time"] {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .appointment-form button {
+    padding: 10px 20px;
+    background-color: #007bff; /* A blue color for the button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .appointment-form button:hover {
+    background-color: #0056b3; /* Darken button color on hover */
+  }
+  
+

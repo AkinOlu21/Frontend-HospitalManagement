@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AppointmentList = ({ appointments, addappointments }) =>
  {
@@ -13,6 +14,10 @@ const AppointmentList = ({ appointments, addappointments }) =>
                 </li>
             ))}
         </ul>
+
+        <Link  to="/AppointmentTable">
+                        
+                    </Link>
         </div>
     );
 };

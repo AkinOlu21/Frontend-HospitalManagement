@@ -10,6 +10,9 @@ import Employee from './components/Epmployee';
 import Category from './components/Category';
 import Profile from './components/Profile';
 import AddCategory from './components/AddCategory';
+import AppointmentTable from './components/AppointmentTable';
+import Patients from './components/Patients';
+import AppointmentForm from './components/AppointmentForm';
 
 
 function App(){
@@ -26,6 +29,10 @@ function App(){
       <Route path='/Dashboard/profile' element={<Profile/>}></Route>
       <Route path='/Dashboard/add_category' element={<AddCategory/>}></Route>
     </Route>
+    <Route path='/Appointment' element={<Appointment/>}>
+      <Route path='/Appointment/AppointmentForm' element={<AppointmentForm/>}></Route>
+    </Route>
+    <Route path='/Patients' element={<Patients/>}></Route>
 
   </Routes>
 

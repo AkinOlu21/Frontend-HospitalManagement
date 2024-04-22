@@ -15,13 +15,26 @@ return (
     <li className="nav-item mx-2" >
       <Link className="btn" to="/">Home</Link>
     </li>
+
     <li className="nav-item mx-2">
       <Link className="btn " to="/Login">Login</Link>
     </li>
+
+    <li className="nav-item mx-2">
+      <Link className="btn " to="/Login">Register</Link>
+    </li>
+
     <li className="nav-item mx-2">
       <Link className="btn btn-outline-red" to="/Dashboard">Dashbboard</Link>
-    </li>
+    </li>  
+
+    <Link  to="/Appointment">Appointment  </Link>
+    
+    <Link  to="/Patients">Patient </Link>
+    
   </ul>
+
+
 </nav>
 <div className="midheader ">
    <h1 className=" h1home align-item-center mx-5 py-5">Medimatrix Management</h1>
