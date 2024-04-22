@@ -26,7 +26,6 @@
 }
 .dashboard{
     background-color: grey;
-    background-image: url(/public/Images/Adminbg3.webp);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -70,7 +69,7 @@
   .appointment-form input[type="date"],
   .appointment-form input[type="time"] {
     padding: 10px;
-    margin-top: 5px;
+    margin-top: px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }

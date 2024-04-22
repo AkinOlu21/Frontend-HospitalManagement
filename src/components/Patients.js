@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 
 const Patients = () => {
   return (
+    <div>
     <div >
          <div className='row flex-nowrap'>
             <div className='col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark'>
@@ -18,16 +19,18 @@ const Patients = () => {
                 </li>
                 <li className='w-100'>
 
-                    <Link  className='nav-link px-0 align-middle mb-1 text-white' to="/Appointment" >
+                    <Link  className='nav-link px-0 align-middle mb-1 text-white' to="/Patients/appointmentform" >
                     <i className='fs-4 bi-person-vcard ms-2'>
                     </i>
                         <span className='ms-2 d-none d-sm-inline'> Make Appointment
                         </span>
                     </Link>
+                  
+                  
                 </li>
                 <li className='w-100'>
                    
-                    <Link className='nav-link px-0 align-middle mb-1 text-white' to="">
+                    <Link className='nav-link px-0 align-middle mb-1 text-white' to="/viewappointment">
                     <i className='fs-4 bi-columns ms-2'>
                         </i>
                         <span className= 'ms-2 d-none d-sm-inline'>View Appointment</span>
@@ -35,7 +38,7 @@ const Patients = () => {
                 
                 </li>
                 <li>
-                    <Link className='nav-link px-0 align-middle mb-1 text-white' to="">
+                    <Link className='nav-link px-0 align-middle mb-1 text-white' to="/viewmedicalrecord">
                         <i className='fs-4 bi-person-fill ms-2'>
                         </i>
                         <span className='ms-2 d-none d-sm-inline'>View medicalrecord
@@ -44,7 +47,7 @@ const Patients = () => {
                 </li>
     
                 <li>
-                    <Link className='nav-link px-0 align-middle mb-1 text-white' to=''>
+                    <Link className='nav-link px-0 align-middle mb-1 text-white' to='/appointmenthistory'>
                     <i className='fs-4 bi-archive-fill ms-2'>
                     </i>
                     <span className='ms-2 d-none d-sm-inline'>Appointment history</span>
@@ -68,12 +71,15 @@ const Patients = () => {
                     <h4 className='fw-bold fs-3 '>MEDIMATRIX MANAGEMENT SERVICES </h4>
                 </div>
                 </Link>
-                <Outlet/>
-            </div>
+            
+            </div>  
+         
         </div>
-        
-        
-        </div>
+     
+      
+        </div> 
+          <Outlet/>
+          </div>
   )
 }
 

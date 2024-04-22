@@ -1,25 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Appointment from './Appointment';
+import { API_Base_URL } from '../apiConfig';
 
-const AppointmentList = ({ appointments, addappointments }) =>
- {
-    return (
-        <div>
-        <h2>Appointment List</h2> 
-        <ul>
-            {appointments.map(appointments => (
-                <li key={appointments.id}>
-                    {appointments.time} - {appointments.type}
-                    <button onClick={() => addappointments(appointments)}>Add appointment</button>
-                </li>
-            ))}
-        </ul>
+const AppointmentsList = () => {
+  const [appointments, setAppointments] = useState([]);
 
-        <Link  to="/AppointmentTable">
-                        
-                    </Link>
-        </div>
-    );
+  useEffect(() => {
+    // Fetch appointments from the backend
+    const fetchData = async () => {
+      const res = await fetch('/api/appointments'); // Modify with your actual API
+      const data = await res.json();
+      setAppointments(data);
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      {appointments.map(appointment => (
+        <Appointment key={appointment.id} appointment={appointment} setAppointments={setAppointments} />
+      ))}
+    </div>
+  );
 };
 
-export default AppointmentList;
+export default AppointmentsList;

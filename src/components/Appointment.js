@@ -1,48 +1,25 @@
-import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import { Axios } from 'axios'
-import { API_Base_URL } from '../apiConfig'
-import AppointmentForm from './AppointmentForm'
+import React from 'react';
+import axios from 'axios';
+import { API_Base_URL } from '../apiConfig';
+import AppointmentForm from './AppointmentForm';
+import AppointmentsList from './AppointmentList';
 
-const Appointment = () => {
+const Appointment = ({ appointment, setAppointments }) => {
+  const handleDelete = async (id) => {
+    const res = await fetch(`/api/appointments/${id}`, { method: 'DELETE' });
+    if (res.ok) {
+      setAppointments(prev => prev.filter(app => app.id !== id));
+    }
+  };
 
   return (
     <div>
-    <div className='appointment'>Appointment</div>
-<Link  to="/AppointmentTable">appointment  table </Link>
-
-<Link className='bg-white btn' to="AppointmentForm"> Appointment Form </Link>
-<table>
-    <thread>
-        <tr>
-            <th>ID</th>
-            <th>PatientID</th>
-            <th>DoctorID</th>
-            <th>Appointment Time</th>
-            <th>Appointment Date</th>
-        </tr>
-        <tbody>
-            {appointment.map((appointment) => (
-                <tr key={appointment.id}>
-                <td>{appointment.Patientid}</td>
-                <td>{appointment.DoctorId}</td>
-                <td>{appointment.Time}</td>
-                <td>{appointment.appointmentDate}</td>
-                <td>
-                <button onClick={() => handleEdit(appointment.id)}>Edit</button>
-                <button onClick={() => handleDelete(appointment.id)}>Delete</button>
-              </td>
-              </tr>
-            ))
-            }
-        </tbody>
-    </thread>
-   </table>
-    
-    
-   <Outlet/>
+      <h3>{appointment}</h3>
+      <p>{appointment}</p>
+      <button onClick={() => handleDelete(appointment.id)}>Delete</button>
+      <button>Edit</button> {/* We will link this to a form */}
     </div>
-  )
-}
+  );
+};
 
-export default Appointment
+export default Appointment;
