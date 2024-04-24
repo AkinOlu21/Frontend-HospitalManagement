@@ -1,61 +1,85 @@
-import React, {useState, useEffect}from 'react';
-import { API_Base_URL } from '../apiConfig';
+
+import React from 'react';
+import { API_BASE_URL } from '../apiConfig';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import  DatePicker from 'react-date-picker'
-import { Outlet } from 'react-router-dom';
 
-const AppointmentForm = ({appointment, setAppoinments, isEditing}) => {
-  const [formData, setFormData] = useState({ title: '', date: '' });
+
+const AppointmentForm = () => {
+  const [doctors, setDoctors] = useState([]);
   const [selectedDoctor, setSelectedDoctor] = useState('');
-  const [selectedDate, setSelectedDate] = useState(new Date()); // defaulting to today
+  const [patientId, setPatientId] = useState('')
+  const [patients, setPatients] = useState([]);
+  const [selectedPatient, setSelectedPatient] = useState('');
+
+  const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
-  const [doctors, setDoctors] = useState([]); // State to store doctors
-
-
-
+  const [editingDoctor, setEditingDoctor] = useState(null)
+  
   useEffect(() => {
-    
-    if (isEditing && appointment) {
-      setFormData({ title: appointment.title, date: appointment.date });
-    }
-  }, [appointment, isEditing]);
-
-  useEffect(() => {
-    // Function to fetch doctors from the backend
-    const fetchDoctors = async () => {
-      try {
-        const response = await fetch('/api/doctors'); // Adjust the API endpoint as necessary
-        const data = await response.json();
-        setDoctors(data); // Set fetched data to state
-      } catch (error) {
-        console.error('Failed to fetch doctors:', error);
-        // Optionally handle errors, e.g., by setting an error state or using a notification system
-      }
-    };
-
     fetchDoctors();
+    fetchPatients();
   }, []);
   
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    const method = isEditing ? 'PUT' : 'POST';
-    const res = await fetch(`/api/appointments/${isEditing ? appointment.id : ''}`, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-  
-    });
-
-    const data = await res.json();
-    if (isEditing) {
-      setAppoinments(prev => prev.map(app => app.id === appointment.id ? data : app));
-    } else {
-      setAppoinments(prev => [...prev, data]);
+  const fetchPatients = async () =>{
+    try {
+      const response = await axios.get (`${API_BASE_URL}Patient`)
+      setPatients(response.data)
+    } catch (error) {
+      console.error('Error fetching patient:', error)
+      
+    }
+  }
+  const fetchDoctors = async () => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}Doctor`);
+      setDoctors(response.data);
+      setSelectedDoctor(null);
+      setEditingDoctor(null)
+      
+    } catch (error) {
+      console.error('Error fetching Doctors:', error);
     }
   };
 
-  
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const formData = {
+      doctorId: selectedDoctor,
+      patientId: selectedPatient,
+      appointmentDateTime: new Date(selectedDate + 'T' + selectedTime).toISOString()
+    };
+
+    try {
+      const response = await axios.post(`${API_BASE_URL}appointment`, formData);
+      console.log('Appointment created:', response.data);
+    } catch (error) {
+      console.error('Error creating appointment:', error);
+      console.log('Error details:', error.response ? error.response.data : error.message);
+
+    }
+  };
+
+  /*const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const formData = {
+        doctorId: selectedDoctor,
+        patientID: selectedPatient,
+       appointmenrDateTime: new Date(selectedDate + 'T' + selectedTime).toISOString()
+      };
+      // POST request to create or PUT to update an appointment
+      const response = await axios({
+        method: 'post',
+        url: `${API_BASE_URL}appointment`,
+        data: formData
+      });
+      console.log('Appointment created:', response.data);
+      // Handle success (e.g., clear form, show message, etc.)
+    } catch (error) {
+      console.error('Error creating appointment:', error);
+    }
+  };*/
 
   return (
     
@@ -63,46 +87,51 @@ const AppointmentForm = ({appointment, setAppoinments, isEditing}) => {
     <form className="appointment-form" onSubmit={handleFormSubmit}>
       <h2>Book an Appointment</h2>
       
-      <label htmlFor="doctor-select">Choose a Doctor:</label>
+      <label >Choose a Doctor:</label>
       <select
-        id="doctor-select"
+        className="doctor-select"
         value={selectedDoctor}
         onChange={(e) => setSelectedDoctor(e.target.value)}
         required
       >
         <option value="">Select a doctor...</option>
         {doctors.map((doctor) => (
-          <option key={doctor.id} value={doctor.id}>
-            Dr. {doctor.name}
+          <option key={doctor.DoctorId} value={doctor.DoctorId}>
+           Dr. {doctor.DoctorId} {doctor.lastName}
           </option>
         ))}
       </select>
 
-      <label htmlFor="appointment-date">Choose a Date:</label>
-      <DatePicker
-        id="appointment-date"
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        dateFormat="MMMM d, yyyy"
-        minDate={new Date()}
-      />
+      <label>Select your name:</label>
+<select className="patient-select"
+        value={selectedPatient}
+        onChange={(e) => setSelectedPatient(e.target.value)}
+        required>
+<option value="">Select yourself...</option>
+        {patients.map((patient) => (
+          <option key={patient.PatientId} value={patient.PatientId}>
+           {patient.firstName} {patient.lastName}
+          </option>
+        ))}
+</select>
+    <label htmlFor="appointment-date">Choose a Date (MM/DD/YYYY):</label>
+    <input type="date"   value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} required
+            
+          />
 
-      <label htmlFor="appointment-time">Choose a Time:</label>
+       <label >Choose a Time:</label>
       <input
         type="time"
-        id="appointment-time"
+        className="appointment-time"
         value={selectedTime}
         onChange={(e) => setSelectedTime(e.target.value)}
         required
        />
 
-<button type="submit">Book Appointment</button>
+<button  type="submit">Book Appointment</button>
   </form>
 
 </div>
-
-
-
     
   );
 

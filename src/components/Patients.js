@@ -19,7 +19,7 @@ const Patients = () => {
                 </li>
                 <li className='w-100'>
 
-                    <Link  className='nav-link px-0 align-middle mb-1 text-white' to="/Patients/appointmentform" >
+                    <Link  className='nav-link px-0 align-middle mb-1 text-white' to="/Patients/appointment" >
                     <i className='fs-4 bi-person-vcard ms-2'>
                     </i>
                         <span className='ms-2 d-none d-sm-inline'> Make Appointment

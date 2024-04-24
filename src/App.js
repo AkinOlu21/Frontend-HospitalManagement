@@ -32,6 +32,7 @@ function App(){
    
 
     <Route path='/Patients' element={<Patients/>}>
+      <Route path='/Patients/appointment' element={<Appointment/>}></Route>
       <Route path='/Patients/appointmentform' element={<AppointmentForm/>}></Route>
     </Route>
 

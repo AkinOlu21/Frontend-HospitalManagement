@@ -87,5 +87,22 @@
   .appointment-form button:hover {
     background-color: #0056b3; /* Darken button color on hover */
   }
-  
 
+  /* Add this CSS to your stylesheet to adjust the date box sizes */
+.react-datepicker__day, .react-datepicker__month-text, .react-datepicker__quarter-text, .react-datepicker__year-text {
+  width: 400px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  line-height: 45px;
+  border-radius: 30%;
+   /* Optional: adds rounded corners */
+   padding: 2rem;
+
+}
+
+.appointment-date-picker {
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+
+  
+  
