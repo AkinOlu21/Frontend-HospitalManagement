@@ -12,6 +12,7 @@ import Profile from './components/Profile';
 import AddCategory from './components/AddCategory';
 import Patients from './components/Patients';
 import AppointmentForm from './components/AppointmentForm';
+import Register from './components/Register';
 
 
 function App(){
@@ -22,6 +23,7 @@ function App(){
   <Routes>
     <Route path='/' element={<Home />} />
     <Route path='/Login' element={<Login/>}  />
+    <Route path='/Register' element={<Register/>}  />
     
     <Route path='/Dashboard' element={<Dashbboard/>}>
       <Route path='/Dashboard/employee' element={<Employee/>}></Route>

@@ -58,3 +58,65 @@ padding-right: 8%;
 
 }
 
+
+/* Registration Form Custom Styles */
+.heroo {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.errmsg {
+  color: red;
+  font-weight: bold;
+}
+
+.offscreen {
+  display: none;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+.instructions {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+.line {
+  display: inline-block;
+  color: #007BFF;
+}
+

@@ -27,6 +27,9 @@ return (
     <li className="nav-item mx-2">
       <Link className="btn btn-outline-red" to="/Dashboard">Dashbboard</Link>
     </li>  
+    <li className="nav-item mx-2">
+      <Link className="btn btn-outline-red" to="/Register">Resgister</Link>
+    </li>  
 
     <Link  to="/Appointment">Appointment  </Link>
     
