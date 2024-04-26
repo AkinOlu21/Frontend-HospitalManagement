@@ -3,7 +3,7 @@ import { API_BASE_URL } from '../apiConfig';
 import axios from 'axios';
 import AppointmentForm from './AppointmentForm';
 import { Link } from 'react-router-dom';
-import { Import } from 'lucide-react';
+
 
 const Appointment = () => {
   const [appointment, setAppointments] = useState([]);

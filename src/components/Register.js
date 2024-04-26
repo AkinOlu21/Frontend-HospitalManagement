@@ -103,11 +103,14 @@ setSuccess(true);
 
 
   return (
-    <div className="hero">
-    <section className="container">
+    <div className=" d-flex justify-content-center align-items-center vh-100 hero">
+     <div className='p-3 rounded w-25 border loginForm'> 
+    <section className="reg-container">
     <p ref={errRef}  className={'alert ${errMsg ? "alert-danger" errmsg": "offscreen"}'} aria-live="assertive">{errMsg}</p>
-<h1 className="text-center fw-bold">Register</h1>
+<h1 className="text-center text fw-bold">Register</h1>
 <form onSubmit={handleSubmit} className="box">
+<div className="inputss">
+<div className="inputs mb-3">
 <label  htmlFor="emailname" placeholder="Enter your emailname" >Email:
 <span className={validName ? "valid": "hide"} >
     <FontAwesomeIcon icon={faCheck}/>
@@ -117,6 +120,7 @@ setSuccess(true);
 </span>
 </label>
 <input
+placeholder="Email:"
 className='form-control rounded-0'
 type="text"
 id="emailname"
@@ -129,7 +133,7 @@ aria-describedby="uidnote"
 onFocus={() => setEmailFocus(true)}
 onBlur={() => setEmailFocus(false)}
 />
-
+</div>
 <p id="uidnote" className={emailFocus && email && !validName ? "instructions" : "offscreen"}>
     <FontAwesomeIcon icon={faInfoCircle}/>
     4 to 24 characters.<br/>
@@ -137,6 +141,7 @@ onBlur={() => setEmailFocus(false)}
     Letters, numbers, underscores, hyphens allowed.
 </p>
 
+<div className="inputs mb-3">
 <label htmlFor="password"> Password:
 <span className={validPwd ? "valid" : "hide"}>
     <FontAwesomeIcon icon={faCheck}/>
@@ -146,6 +151,7 @@ onBlur={() => setEmailFocus(false)}
 </span>
 </label>
 <input
+placeholder="Password:"
 className='form-control rounded-0'
 type="password"
 id="password"
@@ -156,6 +162,7 @@ aria-describedby="pwdnote"
 onFocus={() => setPwdFocus(true)}
 onBlur={() => setPwdFocus(false)}
 />
+</div>
 <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions": "offscreen"}>
     <FontAwesomeIcon icon={faInfoCircle}/>
     8 to 24 characters.<br/>
@@ -165,8 +172,8 @@ onBlur={() => setPwdFocus(false)}
     <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
 </p>
 
-
-<label htmlFor="confirm password"> Confirm Password:
+<div className="inputs mb-3">
+    <label htmlFor="confirm password"> Confirm Password:
 <span className={validMatch && matchPwd ? "valid" : "hide"}>
     <FontAwesomeIcon icon={faCheck}/>
 </span>
@@ -175,6 +182,8 @@ onBlur={() => setPwdFocus(false)}
 </span>
 </label>
 <input
+className='form-control rounded-0'
+placeholder="Confirm Password:"
 type="password"
 id="confirm password"
 onChange={(e) => setMatchPwd(e.target.value)}
@@ -184,12 +193,17 @@ aria-describedby="confirmnote"
 onFocus={() => setMatchFocus(true)}
 onBlur={() => setMatchFocus(false)}
 />
-<p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-<FontAwesomeIcon icon={faInfoCircle}/>
+</div>
+
+
+</div>
+<div className="info">
+<p   id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
+<FontAwesomeIcon  icon={faInfoCircle}/>
 Must match the first password input field.
 </p>
-
-<button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+</div>
+<button   className='btn btn-outline-secondary w-100 rounded-20 mb-2' disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
 </form>
 <p>
     Already registered?<br/>
@@ -201,6 +215,7 @@ Must match the first password input field.
 
 <Outlet/>
     </section>
+    </div> 
 </div>
     
   )

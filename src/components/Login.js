@@ -1,12 +1,18 @@
-import React, { useState , useRef, useEffect, useContext} from 'react'
+import React, { useState , useRef, useEffect} from 'react'
 import '../styles.css'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
-import AuthContext from '../context/AuthProvider';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 import { API_BASE_URL } from '../apiConfig';
 
 export const Login = () => {
-    const {setAuth} = useContext(AuthContext);
+    const {setAuth} = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+
     const emailRef = useRef();
     const  errRef = useRef();
 
@@ -14,7 +20,6 @@ export const Login = () => {
     const [pwd, setPwd]= useState('');
 
     const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
 
   useEffect(() => {
      emailRef.current.focus();
@@ -24,10 +29,7 @@ export const Login = () => {
         setErrMsg('');
     
      }, [email, pwd])
-    const [values, setValues] = useState({
-        email: '',
-        password: ''
-    })
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,11 +44,17 @@ export const Login = () => {
             headers: {'Content-Type': 'application/json'},
             withCredentials: true
         }
+                
+
     );
+    
         console.log(JSON.stringify(response?.data))
         const accessToken = response?.data?.accessToken;
         const roles = response?.data.roles;
-        setAuth({email, pwd, roles, accessToken})
+        setAuth({email, pwd, roles, accessToken, isAuthenticated: true});
+        console.log("Auth state updated:", { email, roles, accessToken, isAuthenticated: true });
+        navigate('/');
+        navigate(from, {replace: true });
      
        } catch (error) {
         if (!error?.response){

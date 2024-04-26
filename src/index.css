@@ -120,3 +120,36 @@ button:disabled {
   color: #007BFF;
 }
 
+.reg-containter{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 200px;
+  background: #fff;
+  padding-bottom: 30px;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 30px;
+  color: lightblue
+}
+
+.inputs{
+margin-top: 10px;
+display: flex;
+flex-direction: column;
+
+}
+
+
+
+.instructions{
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+
